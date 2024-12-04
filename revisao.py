@@ -1,14 +1,15 @@
-    #ler entradas do usuarios
-cont = 0 #variavel que controla a repetição
-escolha_usuario = int(input()) #variavel que guarda quantas vezes o codigo vai rodar
-while cont < escolha_usuario:
-    nome = input()#armazenar o nome do aluno
-    nota1 = float(input())#ler 4 notas do aluno
-    nota2 = float(input())
-    nota3 = float(input())
-    nota4 = float(input())
+#ler entradas do usuarios
+cont = 0#variavel que controla a repetição
+escolha_usuario = int(input("quantidade de aluno ")) #variavel que guarda quantas vezes o codigo vai rodar
+alunos = []
+while cont <= escolha_usuario:
+    nome = input("nome do aluno ")#armazenar o nome do aluno
+    nota1 = float(input("nota do 1 bimestre "))#ler 4 notas do aluno
+    nota2 = float(input("nota do 2 bimestre "))
+    nota3 = float(input("nota do 3 bimestre "))
+    nota4 = float(input("nota do 4 bimestre "))
 
-    faltas = int(input())#calculo da media
+    faltas = int(input("faltas "))#calculo da media
     media = (nota1+nota2+nota3+nota4)/4
 
     #logica da situação
@@ -17,17 +18,14 @@ while cont < escolha_usuario:
     elif media >=8:
         situacao = "aprovado"
     elif media >=5:#recuperação
-        recuperacao = float(input())#ler a nota da recuperação
+        recuperacao = float(input("nota da recuperação "))#ler a nota da recuperação
         if recuperacao >= (10-media):
             situacao = "aprovado na recuperação"
         else:
             situacao = "reprovado na recuperação"
     else:
         situacao = "reprovado por media"
-
-        #relatorio
-    print("nome",nome)
-    print("notas:",nota1,nota2,nota3,nota4)
-    print("nome",faltas)
-    print("nome",situacao)
-    cont = cont +1
+    alunos.append([nome,faltas,media,situacao])
+    #relatorio
+print(alunos)
+    
