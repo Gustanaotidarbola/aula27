@@ -1,58 +1,58 @@
 #cadastro de usuario e senha
-saldo = 0.0 #variavel que guarda o saldo do usuario
+saldo = 0.0 #varialvel que guarda o saldo do usuario
+#declara funçao
+def validar_senha():
+    senha_validar = input(" degite sua senha")
+    if senha_validar== senha: 
+     return True # retorna verdadeiro
+    saldo =0.0
 while True:
-    #menu principal
-    print("bem vindo! \n digite 1.cadastro 2.login 3.encerrar")
-    #ler a escolha do usario
-    escolha_menu = int(input()) #le a escolha como um numero...
-
-    #se usuario escolhar cadastro
-    if escolha_menu == 1:
-        #criar um usuario e uma senha com tipo sting
-        usuario = input("crie um nome de usuario")
-        senha = input("crie uma senha")
-    elif escolha_menu == 2: #se o usuario escolher login
-        #comparar as inf. cadastrada com uma leitura
-        logim_usuario = input("digite usuario")
-        logim_senha = input("digite a sua senha")
-        if logim_usuario== usuario and logim_senha == senha:
-            print("login realizado com sucesso")
-            #se login corre, emtrar no
+    print("bem vindoo!\n digite 1.deposito 2. sacar 3.pix 4.extrato 5.encerrar!")
+    #ler a escolha do usuario 
+    escolha_menu = int(input())#le a escolha como um numero
+    #se usuario escolher cadastro
+    if escolha_menu== 1:
+        usuario= input("crie um nome de usuario ")
+        senha = input("crie uma senha ")
+    elif escolha_menu == 2: #se usuario escolher login
+        #comparar as inf. cadastradas com uma leitura
+        login_usuario = input ("degite seu usuario ")
+        login_senha = input("degite sua senha ")
+        if login_usuario == usuario and login_senha == senha:
+            print("login realizado com secesso")
+            #se login correto, entra no
             #menu principal do app
             print("bem vindo", usuario)
-            while True:# enquanto que exibira o menu principal
-                print("1.deposito 2.sacar 3.pix 4.extrato 5.encerrar")
+            while True: #enquanto que exiba o menu principal
+                print("1.deposito 2. sacar 3.extrato 4.encerrar")
                 escolha_principal = int(input())
-                if escolha_principal == 1:#se usuario escolher depositar
-                    #le o valor a ser depositado
+                if escolha_principal == 1: # se o usuario escolher depositar 
+                    #ler o valor do deposito
                     valor_deposito = float(input())
-                    saldo = saldo + valor_deposito #atualizar o valor
-                    print("novo saldo é",saldo)
+                    saldo = saldo + valor_deposito#atualiza o valor
+                    print("novo saldo e ", saldo)
                 elif escolha_principal ==2:#saque
-                    valo_saque = float(input("digite o valor do saque"))
-                    senha_saque = input("digite sua senha")
-                    if senha_saque ==senha: #se senha incorreta
-                        saldo = saldo - valo_saque #subtrai o valor do saldo
-                    else:  
+                    valor_saque= float(input("degite o valor do saque "))
+                    if validar_senha(): #se a senha correta
+                        saldo = saldo - valor_saque
+                    else:
                         print("senha incorreta")
-                elif escolha_principal == 3: #se usuario escolhar pix
-                    valor_pix = float(input("digite o valor do pix"))
-                    senha_pix = input("digite sua senha")
-                    if senha_pix == senha:
+                elif escolha_principal == 3:# se usuario escolher pix
+                    valor_pix = float (input("degite o valor do pix"))
+                    if validar_senha():
                         saldo = saldo - valor_pix
                     else:
                         print("senha incorreta")
-                elif escolha_principal == 4: #se usuario escolher visualizar
-                    senha_extrato = input("digite sua semha")
-                    if senha_extrato == senha:
-                       print("extrato:", saldo)
+                elif escolha_principal == 4: #se usuario escolher
+                    
+                    if validar_senha():
+                        print("extrato:,saldo")
                     else:
                         print("senha incorreta")
-                elif escolha_principal == 5: #encerrar
-                    senha_encerrar = input("digite sua senha")
-                    if senha_encerrar == senha:
-                        break
+                elif escolha_principal== 5: #encerrar
+                    if validar_senha():
+                        break               
                     else:
-                        print("senha incorreta")
-
-            
+                          print("usuario ou senha incorreta")
+        else:
+            print("Senha errada")
